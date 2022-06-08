@@ -28,11 +28,11 @@ render: traverse blocks list and
  */
 
 function SectionBlock(props) {
-  let block_text = props.block_text;
-  let block_id = props.block_id;
+  let blockText = props.blockText;
+  let blockId = props.blockId;
 
   return (
-    <div id={ block_id }>{ block_text }</div>
+    <div id={ blockId }>{ blockText }</div>
   );
 }
 
@@ -40,7 +40,7 @@ class BlockResponse extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      parsed_jason: props.parsed_jason,
+      parsedJason: props.parsedJason,
     };
   }
   //
@@ -57,23 +57,23 @@ class BlockResponse extends React.Component {
   // }
 
   render() {
-    console.log('render', this.props.parsed_jason);
+    console.log('render', this.props.parsedJason);
 
-    let block_list = [];
-    if (!this.props.parsed_jason) {
+    let blockList = [];
+    if (!this.props.parsedJason) {
       return;
     }
 
-    for (let block_index = 0; block_index < this.props.parsed_jason.length; block_index++) {
-      let block_dict = this.props.parsed_jason[block_index]
-      console.log('block_dict', block_dict);
+    for (let blockIndex = 0; blockIndex < this.props.parsedJason.length; blockIndex++) {
+      let blockDict = this.props.parsedJason[blockIndex]
+      console.log('blockDict', blockDict);
 
-      let this_block = < SectionBlock block_text={ block_dict['text']['text'] } block_id={ block_dict['block_id'] }/>;
+      let thisBlock = < SectionBlock blockText={ blockDict['text']['text'] } blockId={ blockDict['block_id'] }/>;
 
       // this.setState((state) => {
-      //   return { block_list: state.block_list.push(this_block) };
+      //   return { blockList: state.blockList.push(thisBlock) };
       // });
-      block_list.push(this_block);
+      blockList.push(thisBlock);
     }
     // for (const block_dict in this.props.parsed_jason) {
     //   console.log('block_dict');
@@ -81,11 +81,11 @@ class BlockResponse extends React.Component {
     //   let this_block = < SectionBlock block_text={ block_dict['text']['text'] } block_id={ block_dict['block_id'] }/>;
     //
     //   // this.setState((state) => {
-    //   //   return { block_list: state.block_list.push(this_block) };
+    //   //   return { blockList: state.blockList.push(this_block) };
     //   // });
-    //   block_list.push(this_block);
+    //   blockList.push(this_block);
     // }
-    const display_block_list = block_list.map((block, index) => {
+    const displayBlockList = blockList.map((block, index) => {
       return (
         <div key={ index }>
           { block }
@@ -95,7 +95,7 @@ class BlockResponse extends React.Component {
 
     return (
       <>
-        { display_block_list }
+        { displayBlockList }
       </>
     );
   }
@@ -114,18 +114,16 @@ class SlackBlockForm extends React.Component {
 
   handleChange(e) {
     this.setState({ jason: e.target.value });
-    console.log('hello')
-    console.log(this.state.jason)
+    console.log('handleChange()', this.state.jason);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('hello2')
-    console.log(this.state.jason)
+    console.log('handleSubmit()', this.state.jason);
   }
 
   render() {
-    let parsed_jason = this.state.jason ? JSON.parse(this.state.jason)['blocks'] : null;
+    let parsedJason = this.state.jason ? JSON.parse(this.state.jason)['blocks'] : null;
     return (
       <div className="full-container">
         <form className="block-request-form" onSubmit={ this.handleSubmit }>
@@ -141,7 +139,7 @@ class SlackBlockForm extends React.Component {
         </form>
         <br/>
         <div className="slack-block-response">
-          <BlockResponse parsed_jason={ parsed_jason }/>
+          <BlockResponse parsedJason={ parsedJason }/>
         </div>
       </div>
     );
