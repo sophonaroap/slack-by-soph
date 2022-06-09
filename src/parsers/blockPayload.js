@@ -1,13 +1,12 @@
 import { BlockDTO } from "./DTOs/blockDTO";
 
-export function BuildPayloadDTO(parsedJason) {
+export function buildPayloadDTO(parsedJason) {
   let blockDTOArray = []
 
-  for (let blockIndex = 0; blockIndex < parsedJason.length; blockIndex++) {
-    let blockDict = parsedJason[blockIndex];
-    console.log('blockDict', blockDict, 'blockId', blockIndex);
+  for (let blockKey in parsedJason) {
+    let blockDict = parsedJason[blockKey];
 
-    const thisBlock = new BlockDTO(blockDict);
+    let thisBlock = new BlockDTO(blockDict);
     blockDTOArray.push(thisBlock);
   }
 

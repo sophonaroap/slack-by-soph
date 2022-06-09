@@ -2,13 +2,13 @@ import React from 'react';
 import { SectionBlock } from "../slackBlockComponents/sectionBlock";
 
 export function BlockResponse(props) {
-  const parsedPayload = props.parsedPayload
+  const parsedPayload = props.parsedPayload;
   if (!parsedPayload) return;
 
   let blockList = [];
 
-  for (let blockIndex = 0; blockIndex < parsedPayload.length; blockIndex++) {
-    let blockDTO = parsedPayload[blockIndex];
+  for (let blockKey in blockList) {
+    let blockDTO = parsedPayload[blockKey];
     console.log('blockDTO', blockDTO);
 
     let thisBlock = < SectionBlock blockText={ blockDTO.text } blockId={ blockDTO.block_id }/>;

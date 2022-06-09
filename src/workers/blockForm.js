@@ -1,6 +1,6 @@
 import React from 'react';
 import { BlockResponse } from "./blockResponse";
-import { BuildPayloadDTO } from "../parsers/blockPayload";
+import { buildPayloadDTO } from "../parsers/blockPayload";
 
 export class BlockForm extends React.Component {
   constructor(props) {
@@ -18,8 +18,7 @@ export class BlockForm extends React.Component {
   }
 
   render() {
-    const parsedJason = this.state.jason ? JSON.parse(this.state.jason)['blocks'] : null;
-    const parsedPayload = parsedJason ? BuildPayloadDTO(parsedJason) : null;
+    const parsedPayload = this.state.jason ? buildPayloadDTO(JSON.parse(this.state.jason)['blocks']) : null;
 
     return (
       <div className="full-container">
