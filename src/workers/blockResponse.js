@@ -1,19 +1,17 @@
-import React from "@types/react";
+import React from 'react';
 import { SectionBlock } from "../slackBlockComponents/sectionBlock";
 
 export function BlockResponse(props) {
-  console.log('render', props.parsedJason);
+  const parsedPayload = props.parsedPayload
+  if (!parsedPayload) return;
 
   let blockList = [];
-  if (!props.parsedJason) {
-    return;
-  }
 
-  for (let blockIndex = 0; blockIndex < props.parsedJason.length; blockIndex++) {
-    let blockDict = props.parsedJason[blockIndex];
-    console.log('blockDict', blockDict);
+  for (let blockIndex = 0; blockIndex < parsedPayload.length; blockIndex++) {
+    let blockDTO = parsedPayload[blockIndex];
+    console.log('blockDTO', blockDTO);
 
-    let thisBlock = < SectionBlock blockText={ blockDict['text']['text'] } blockId={ blockDict['block_id'] }/>;
+    let thisBlock = < SectionBlock blockText={ blockDTO.text } blockId={ blockDTO.block_id }/>;
 
     blockList.push(thisBlock);
   }
@@ -26,9 +24,5 @@ export function BlockResponse(props) {
     );
   });
 
-  return (
-    <>
-      { displayBlockList }
-    </>
-  );
+  return <>{ displayBlockList }</>;
 }

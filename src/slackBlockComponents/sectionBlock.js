@@ -1,4 +1,4 @@
-import React from "@types/react";
+import React from 'react';
 
 export function SectionBlock(props) {
   let blockText = props.blockText;
