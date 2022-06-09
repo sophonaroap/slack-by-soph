@@ -1,7 +1,12 @@
 import React from 'react';
 import { BlockResponse } from "./blockResponse";
-import { buildPayloadDTO } from "../parsers/blockPayload";
+import { buildBlocksPayload } from "../parsers/buildBlocksPayload";
 
+/**
+ * BlockForm contains both the input form and the block response
+ * The input form takes in a block payload (JSON)
+ * The response contains the rendered blocks, which are contained in < BlockResponse />
+ */
 export class BlockForm extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +23,8 @@ export class BlockForm extends React.Component {
   }
 
   render() {
-    const parsedPayload = this.state.jason ? buildPayloadDTO(JSON.parse(this.state.jason)['blocks']) : null;
+    // Parse the user input JSON, and return an array of BlockDTOs objects to later iterate through
+    const parsedPayload = this.state.jason ? buildBlocksPayload(JSON.parse(this.state.jason)['blocks']) : null;
 
     return (
       <div className="full-container">
