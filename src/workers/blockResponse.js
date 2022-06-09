@@ -1,43 +1,34 @@
 import React from "@types/react";
 import { SectionBlock } from "../slackBlockComponents/sectionBlock";
 
-export class BlockResponse extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      parsedJason: props.parsedJason,
-    };
+export function BlockResponse(props) {
+  console.log('render', props.parsedJason);
+
+  let blockList = [];
+  if (!props.parsedJason) {
+    return;
   }
 
-  render() {
-    console.log('render', this.props.parsedJason);
+  for (let blockIndex = 0; blockIndex < props.parsedJason.length; blockIndex++) {
+    let blockDict = props.parsedJason[blockIndex];
+    console.log('blockDict', blockDict);
 
-    let blockList = [];
-    if (!this.props.parsedJason) {
-      return;
-    }
+    let thisBlock = < SectionBlock blockText={ blockDict['text']['text'] } blockId={ blockDict['block_id'] }/>;
 
-    for (let blockIndex = 0; blockIndex < this.props.parsedJason.length; blockIndex++) {
-      let blockDict = this.props.parsedJason[blockIndex];
-      console.log('blockDict', blockDict);
+    blockList.push(thisBlock);
+  }
 
-      let thisBlock = < SectionBlock blockText={ blockDict['text']['text'] } blockId={ blockDict['block_id'] }/>;
-
-      blockList.push(thisBlock);
-    }
-
-    const displayBlockList = blockList.map((block, index) => {
-      return (
-        <div key={ index }>
-          { block }
-        </div>
-      );
-    });
-
+  const displayBlockList = blockList.map((block, index) => {
     return (
-      <>
-        { displayBlockList }
-      </>
+      <div key={ index }>
+        { block }
+      </div>
     );
-  }
+  });
+
+  return (
+    <>
+      { displayBlockList }
+    </>
+  );
 }

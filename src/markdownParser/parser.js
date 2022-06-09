@@ -41,7 +41,7 @@ inline code:  .*[`]\S.*[`].*
 code block:   .*`{3}\S.*`{3}.*
 */
 
-function parseMarkdown(markdownText) {
+export function parseMarkdown(markdownText) {
   let boldRe = /.*[*](\S.*)[*].*/gim;
   console.log(markdownText)
 
@@ -49,5 +49,3 @@ function parseMarkdown(markdownText) {
 
   return <div dangerouslySetInnerHTML={{__html: htmlText}} />;
 }
-
-export default parseMarkdown

@@ -1,5 +1,4 @@
 import React from "@types/react";
-import parseMarkdown from "../markdownParser/parser";
 import { BlockResponse } from "./blockResponse";
 
 export class BlockForm extends React.Component {
@@ -26,14 +25,8 @@ export class BlockForm extends React.Component {
   render() {
     let parsedJason = this.state.jason ? JSON.parse(this.state.jason)['blocks'] : null;
 
-    let markdownText = '*this should be in bold tags*';
-    let markdownToHtml = parseMarkdown(markdownText);
-
     return (
       <div className="full-container">
-        <div>
-          { markdownToHtml }
-        </div>
         <form className="block-request-form" onSubmit={ this.handleSubmit }>
           <label>
             Jason:
