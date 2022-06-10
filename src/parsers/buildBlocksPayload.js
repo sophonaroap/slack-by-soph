@@ -1,8 +1,8 @@
-import { Block } from "./DTOs/blockObjects";
+import { SectionBlock } from "./iHateYou/DTOs/blockObjects";
 
 /**
  * @param parsedJason > JSON.parse(userInput)
- * @returns Array[Block]
+ * @returns Array[SectionBlock]
  */
 export function buildBlocksPayload(parsedJason) {
   let blockDTOArray = []
@@ -10,7 +10,7 @@ export function buildBlocksPayload(parsedJason) {
   for (let blockKey in parsedJason) {
     let blockDict = parsedJason[blockKey];
 
-    let thisBlock = new Block(blockDict);
+    let thisBlock = new SectionBlock(blockDict);
     blockDTOArray.push(thisBlock);
   }
 

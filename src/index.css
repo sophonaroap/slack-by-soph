@@ -15,7 +15,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 15px;
-  line-height: 1.46668;
+  line-height: 22px;
   font-weight: 400;
   color: rgb(29, 28, 29);
   font-variant-ligatures: common-ligatures;
@@ -31,6 +31,41 @@ div {
 
 div .slack-block-response {
   height: 100vh;
+}
+
+.block-response-block {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.context-block {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+.context-block-text {
+  display: inline;
+  font-size: 13px;
+  line-height: 18px;
+  height: auto;
+  width: auto;
+  word-break: break-word;
+}
+
+.context-block-img {
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: cover;
+  border-radius: 2px;
+  display: inline-block;
+  height: 20px;
+  margin-left: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 20px
 }
 
 
