@@ -12,13 +12,14 @@ export function ContextBlock(props) {
     let thisElement = contextElements[elementIndex]
 
     if (thisElement['type'] === 'image') {
-      renderedElements.push(<ImageElement elementKey={ elementIndex }
+      renderedElements.push(<ImageElement key={ elementIndex }
                                           imageAltText={ thisElement.alt_text }
                                           imageUrl={ thisElement.image_url }/>);
     }
     else {
-      renderedElements.push(<TextElement elementKey={ elementIndex }
-                                         elementText={ thisElement.text }/>);
+      renderedElements.push(<TextElement key={ elementIndex }
+                                         elementText={ thisElement.text }
+                                         isMarkdown={thisElement['type'] === 'mrkdwn'}/>);
     }
   }
 

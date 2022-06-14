@@ -1,7 +1,6 @@
 import React from 'react';
 
 export function ImageElement(props) {
-  let elementKey = props.elementKey;
   let imageAltText = props.imageAltText;
   let imageUrl = props.imageUrl;
 
@@ -10,6 +9,6 @@ export function ImageElement(props) {
   };
 
   return (
-      <div className='img-element' key={ elementKey } role='img' title={imageAltText} style={thisInlineStyle}/>
+      <div className='img-element' role='img' title={imageAltText} style={thisInlineStyle}/>
   );
 }

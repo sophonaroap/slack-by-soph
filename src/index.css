@@ -46,7 +46,7 @@ div .slack-block-response {
   margin-top: 4px;
 }
 
-.context-block-text {
+.context-block .text-element {
   display: inline;
   font-size: 13px;
   line-height: 18px;
@@ -55,7 +55,7 @@ div .slack-block-response {
   word-break: break-word;
 }
 
-.context-block-img {
+.context-block .img-element {
   background-position-x: 50%;
   background-position-y: 50%;
   background-size: cover;
