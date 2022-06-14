@@ -1,4 +1,4 @@
-import { SectionBlock } from "./iHateYou/DTOs/blockObjects";
+import { SectionBlock } from 'parsers/iHateYou/DTOs/blockObjects';
 
 /**
  * @param parsedJason > JSON.parse(userInput)

@@ -1,5 +1,6 @@
 import React from 'react';
-import { BlockResponse } from "./blockResponse";
+import { BlockResponse } from 'workers/blockResponse';
+
 // import { buildBlocksPayload } from "../parsers/buildBlocksPayload";
 
 /**

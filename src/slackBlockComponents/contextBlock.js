@@ -1,6 +1,6 @@
 import React from 'react';
-import { ImageElement } from 'src/slackBlockElementComponents/imageElement';
-import { TextElement } from 'src/slackBlockElementComponents/textElement';
+import { ImageElement } from 'slackBlockElementComponents/imageElement';
+import { TextElement } from 'slackBlockElementComponents/textElement';
 
 export function ContextBlock(props) {
   let contextElements = props.contextElements;

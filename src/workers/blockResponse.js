@@ -1,6 +1,6 @@
 import React from 'react';
-import { SectionBlock } from 'src/slackBlockComponents/sectionBlock';
-import { ContextBlock } from 'src/slackBlockComponents/contextBlock';
+import { SectionBlock } from 'slackBlockComponents/sectionBlock';
+import { ContextBlock } from 'slackBlockComponents/contextBlock';
 
 /**
  * Loop through each Block from user input, and return the full html of all

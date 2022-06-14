@@ -1,5 +1,5 @@
 import React from 'react';
-import { convertStringWithEmoji } from 'src/parsers/emoji';
+import { convertStringWithEmoji } from 'parsers/emoji';
 
 export function TextElement(props) {
   let elementKey = props.elementKey;
