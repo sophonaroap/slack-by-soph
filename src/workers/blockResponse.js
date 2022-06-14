@@ -1,9 +1,10 @@
 import React from 'react';
-import { SectionBlock } from "../slackBlockComponents/sectionBlock";
-import { ContextBlock } from "../slackBlockComponents/contextBlock";
+import { SectionBlock } from 'src/slackBlockComponents/sectionBlock';
+import { ContextBlock } from 'src/slackBlockComponents/contextBlock';
 
 /**
- * Loop through each Block from user input, and return the full html of all blocks in response
+ * Loop through each Block from user input, and return the full html of all
+ * blocks in response
  * @param props - parsedPayload -> Array[Block]
  */
 export function BlockResponse(props) {
@@ -20,11 +21,13 @@ export function BlockResponse(props) {
 
     switch(blockObject['type']) {
       case 'context':
-        thisBlock = < ContextBlock contextElements={ blockObject['elements'] } blockId={ blockObject.block_id }/>;
+        thisBlock = < ContextBlock contextElements={ blockObject['elements'] }
+                                   blockId={ blockObject.block_id }/>;
         break;
 
       default:
-        thisBlock = < SectionBlock blockText={ blockObject.text.text } blockId={ blockObject.block_id }/>;
+        thisBlock = < SectionBlock blockText={ blockObject.text.text }
+                                   blockId={ blockObject.block_id }/>;
     }
 
     blockList.push(thisBlock);

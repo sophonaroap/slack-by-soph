@@ -1,4 +1,6 @@
 import React from 'react';
+import { ImageElement } from 'src/slackBlockElementComponents/imageElement';
+import { TextElement } from 'src/slackBlockElementComponents/textElement';
 
 export function ContextBlock(props) {
   let contextElements = props.contextElements;
@@ -10,13 +12,13 @@ export function ContextBlock(props) {
     let thisElement = contextElements[elementIndex]
 
     if (thisElement['type'] === 'image') {
-      let thisInlineStyle = {
-        backgroundImage: 'url(' + thisElement.image_url + ')',
-      };
-      renderedElements.push(<div className='context-block-img' key={ elementIndex } role='img' title={thisElement.alt_text} style={thisInlineStyle}/>);
+      renderedElements.push(<ImageElement elementKey={ elementIndex }
+                                          imageAltText={ thisElement.alt_text }
+                                          imageUrl={ thisElement.image_url }/>);
     }
     else {
-      renderedElements.push(<div className='context-block-text' key={ elementIndex }>{ thisElement.text }</div>);
+      renderedElements.push(<TextElement elementKey={ elementIndex }
+                                         elementText={ thisElement.text }/>);
     }
   }
 
