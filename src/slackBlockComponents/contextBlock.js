@@ -5,14 +5,7 @@ export function ContextBlock(props) {
   let blockId = props.blockId;
 
   let renderedElements = []
-  // for (let thisElement of contextElements) {
-  //   if (thisElement['type'] === 'image') {
-  //     renderedElements.push(<img src={ thisElement.image_url } alt={ thisElement.alt_text }/>);
-  //   }
-  //   else {
-  //     renderedElements.push(<span>{ thisElement.text }</span>);
-  //   }
-  // }
+
   for (let elementIndex = 0; elementIndex < contextElements.length; elementIndex++) {
     let thisElement = contextElements[elementIndex]
 
@@ -20,7 +13,6 @@ export function ContextBlock(props) {
       let thisInlineStyle = {
         backgroundImage: 'url(' + thisElement.image_url + ')',
       };
-
       renderedElements.push(<div className='context-block-img' key={ elementIndex } role='img' title={thisElement.alt_text} style={thisInlineStyle}/>);
     }
     else {
